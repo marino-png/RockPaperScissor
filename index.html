@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock paper scissor </title>
+</head>
+<body>
+    <script>
+        function computerChoice(){
+            let randomNumber = Math.floor(Math.random()* (3-1 +1))+1;
+            switch(randomNumber){
+                case 1 : 
+                    return "rock";
+                    break;
+                case 2:
+                    return "scissor";
+                    break;
+                case 3:
+                    return "paper";
+                    break;
+                default:
+                    return "something went wrong";
+                    break;
+            }
+        }
+        function playerChoice(){
+            let player = prompt("your move");
+            return player.toLowerCase();
+        }
+        function playRound(){
+            let playerSelection = playerChoice();
+            let computerSelection = computerChoice();
+            //player choose rock
+            if(playerSelection === "rock" && computerSelection==="scissor"){
+                return "player win rock beat scissor"
+            }
+            if(playerSelection === "rock" && computerSelection==="paper"){
+                return "computer win paper beat rock"
+            }
+            if(playerSelection === "rock" && computerSelection==="rock"){
+                return "it's a draw both are rock"
+            }
+            //player choose scissor
+            if(playerSelection === "scissor" && computerSelection==="scissor"){
+                return "it's a draw both are scissor"
+            }
+            if(playerSelection === "scissor" && computerSelection==="paper"){
+                return "player win scissor beat paper"
+            }
+            if(playerSelection === "scissor" && computerSelection==="rock"){
+                return "computer win rock beat scissor "
+            }
+            //player choose paper 
+            if(playerSelection === "paper" && computerSelection==="scissor"){
+                return "computer win scissor beat paper"
+            }
+            if(playerSelection === "paper" && computerSelection==="rock"){
+                return "player win paper beat rock"
+            }
+            if(playerSelection === "paper" && computerSelection==="paper"){
+                return "it's a draw both are paper"
+            }
+        }
+        
+        console.log(playRound());
+    </script>
+</body>
+</html>
