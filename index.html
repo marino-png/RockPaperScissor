@@ -8,8 +8,9 @@
 </head>
 <body>
     <script>
+        let playerScore=0;
         function computerChoice(){
-            let randomNumber = Math.floor(Math.random()* (3-1 +1))+1;
+            let randomNumber = Math.floor(Math.random()* (3))+1;
             switch(randomNumber){
                 case 1 : 
                     return "rock";
@@ -29,42 +30,56 @@
             let player = prompt("your move");
             return player.toLowerCase();
         }
+        
         function playRound(){
             let playerSelection = playerChoice();
             let computerSelection = computerChoice();
             //player choose rock
             if(playerSelection === "rock" && computerSelection==="scissor"){
-                return "player win rock beat scissor"
+                return "player win";
             }
-            if(playerSelection === "rock" && computerSelection==="paper"){
-                return "computer win paper beat rock"
+            else if(playerSelection === "rock" && computerSelection==="paper"){
+                return "computer win";
             }
-            if(playerSelection === "rock" && computerSelection==="rock"){
-                return "it's a draw both are rock"
+            else if(playerSelection === "rock" && computerSelection==="rock"){
+                return "nobody win"
             }
             //player choose scissor
-            if(playerSelection === "scissor" && computerSelection==="scissor"){
-                return "it's a draw both are scissor"
+            else if(playerSelection === "scissor" && computerSelection==="scissor"){
+                return "nobody win"
             }
-            if(playerSelection === "scissor" && computerSelection==="paper"){
-                return "player win scissor beat paper"
+            else if(playerSelection === "scissor" && computerSelection==="paper"){
+                return "player win";
             }
-            if(playerSelection === "scissor" && computerSelection==="rock"){
-                return "computer win rock beat scissor "
+            else if(playerSelection === "scissor" && computerSelection==="rock"){
+                return "computer win";
             }
             //player choose paper 
-            if(playerSelection === "paper" && computerSelection==="scissor"){
-                return "computer win scissor beat paper"
+            else if(playerSelection === "paper" && computerSelection==="scissor"){
+                return "computer win";
             }
-            if(playerSelection === "paper" && computerSelection==="rock"){
-                return "player win paper beat rock"
+            else if(playerSelection === "paper" && computerSelection==="rock"){
+                return "player win";
             }
-            if(playerSelection === "paper" && computerSelection==="paper"){
-                return "it's a draw both are paper"
+            else if(playerSelection === "paper" && computerSelection==="paper"){
+                return "nobody win"
             }
         }
+        function fullMatch(){
+            let n = 0;
+            let memo = "";
+            for(i=1;i<=3;i++){
+               let score = playRound();
+                memo += " In the game number "+i+" the "+score+"\n";
+                if (score === "player win"){
+                     n ++;
+                }  
+            }
+            memo += " the player wins "+ n+" times";
+            return memo
+        }
         
-        console.log(playRound());
+        console.log(fullMatch());
     </script>
 </body>
 </html>
