@@ -1,85 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rock paper scissor </title>
-</head>
-<body>
-    <script>
-        let playerScore=0;
-        function computerChoice(){
-            let randomNumber = Math.floor(Math.random()* (3))+1;
-            switch(randomNumber){
-                case 1 : 
-                    return "rock";
-                    break;
-                case 2:
-                    return "scissor";
-                    break;
-                case 3:
-                    return "paper";
-                    break;
-                default:
-                    return "something went wrong";
-                    break;
-            }
-        }
-        function playerChoice(){
-            let player = prompt("your move");
-            return player.toLowerCase();
-        }
-        
-        function playRound(){
-            let playerSelection = playerChoice();
-            let computerSelection = computerChoice();
-            //player choose rock
-            if(playerSelection === "rock" && computerSelection==="scissor"){
-                return "player win";
-            }
-            else if(playerSelection === "rock" && computerSelection==="paper"){
-                return "computer win";
-            }
-            else if(playerSelection === "rock" && computerSelection==="rock"){
-                return "nobody win"
-            }
-            //player choose scissor
-            else if(playerSelection === "scissor" && computerSelection==="scissor"){
-                return "nobody win"
-            }
-            else if(playerSelection === "scissor" && computerSelection==="paper"){
-                return "player win";
-            }
-            else if(playerSelection === "scissor" && computerSelection==="rock"){
-                return "computer win";
-            }
-            //player choose paper 
-            else if(playerSelection === "paper" && computerSelection==="scissor"){
-                return "computer win";
-            }
-            else if(playerSelection === "paper" && computerSelection==="rock"){
-                return "player win";
-            }
-            else if(playerSelection === "paper" && computerSelection==="paper"){
-                return "nobody win"
-            }
-        }
-        function fullMatch(){
-            let n = 0;
-            let memo = "";
-            for(i=1;i<=3;i++){
-               let score = playRound();
-                memo += " In the game number "+i+" the "+score+"\n";
-                if (score === "player win"){
-                     n ++;
-                }  
-            }
-            memo += " the player wins "+ n+" times";
-            return memo
-        }
-        
-        console.log(fullMatch());
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>rock paper scissor </title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="cointeiner">
+            <div class="buttons">
+                <button onclick="scissorChoice()">scissor</button>
+                <button onclick="paperChoice()" id="rock">rock</button>
+                <button onclick="rockChoice()" id="paper">paper</button>
+            </div>
+            <div class="respond">here I write if you lose or win</div>
+        </div>
+        <script async src="index.js"></script>
+    </body>
 </html>
