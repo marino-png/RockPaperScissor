@@ -21,16 +21,23 @@ function playerChoice(start){
     return player;
 }
 function scissorChoice(){
-   console.log(playRound(playerChoice("scissor"),computerChoice()));
+    let result = playRound(playerChoice("scissor"),computerChoice());
+    console.log(result);
+    const output = document.querySelector('.respond');
+    output.textContent = result;
    
 }
 function paperChoice(){
-    console.log(playRound(playerChoice("paper"),computerChoice()));
-    
+    let result = playRound(playerChoice("paper"),computerChoice());
+    console.log(result);
+    const output = document.querySelector('.respond');
+    output.textContent = result;
  }
  function rockChoice(){
-    console.log(playRound(playerChoice("rock"),computerChoice()));
-    
+    let result = playRound(playerChoice("rock"),computerChoice());
+    console.log(result);
+    const output = document.querySelector('.respond');
+    output.textContent = result;
  }
 
 function playRound(player , computer ){
