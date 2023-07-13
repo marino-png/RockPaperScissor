@@ -1,0 +1,28 @@
+body{
+    background-color: #F0803C;
+}
+.cointeiner{
+    height: 98vh;
+}
+.cointeiner>.respond{
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    height: 50%;
+    color: #000103;
+    font-family: 'Playfair Display', serif;
+    font-size: 63px;
+}
+.cointeiner>.buttons{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 50%;
+}
+.buttons>.btn{
+    background-color: #598B2C;
+    border-radius:10px;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    font-size: 63px;
+    margin: 1%;
+}
